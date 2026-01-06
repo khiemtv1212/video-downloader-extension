@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      width: 400px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #1a1a1a;
+      color: #fff;
+    }
+    
+    .header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      padding: 20px;
+      text-align: center;
+    }
+    
+    .header h1 {
+      font-size: 20px;
+      font-weight: 600;
+    }
+    
+    .content {
+      padding: 15px;
+    }
+    
+    .status {
+      background: #2a2a2a;
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 15px;
+      text-align: center;
+      font-size: 14px;
+    }
+    
+    .video-list {
+      max-height: 300px;
+      overflow-y: auto;
+    }
+    
+    .video-item {
+      background: #2a2a2a;
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.2s;
+    }
+    
+    .video-item:hover {
+      background: #333;
+    }
+    
+    .video-info {
+      flex: 1;
+    }
+    
+    .platform {
+      font-size: 12px;
+      color: #888;
+      margin-bottom: 4px;
+    }
+    
+    .quality {
+      font-size: 14px;
+      font-weight: 500;
+    }
+    
+    .download-btn {
+      background: #667eea;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 8px 16px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+      transition: background 0.2s;
+    }
+    
+    .download-btn:hover {
+      background: #5568d3;
+    }
+    
+    .download-btn:active {
+      transform: scale(0.95);
+    }
+    
+    .clear-btn {
+      width: 100%;
+      background: #dc3545;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 10px;
+      cursor: pointer;
+      font-size: 14px;
+      margin-top: 10px;
+    }
+    
+    .clear-btn:hover {
+      background: #c82333;
+    }
+    
+    .empty-state {
+      text-align: center;
+      padding: 40px 20px;
+      color: #888;
+    }
+    
+    .empty-state svg {
+      width: 64px;
+      height: 64px;
+      margin-bottom: 16px;
+      opacity: 0.5;
+    }
+    
+    .instructions {
+      font-size: 12px;
+      color: #888;
+      text-align: center;
+      margin-top: 15px;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>🎥 Video Downloader</h1>
+  </div>
+  
+  <div class="content">
+    <div class="status" id="status">
+      Đang tìm videos...
+    </div>
+    
+    <div class="video-list" id="videoList">
+      <div class="empty-state">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/>
+        </svg>
+        <p>Chưa phát hiện video nào</p>
+      </div>
+    </div>
+    
+    <button class="clear-btn" id="clearBtn" style="display: none;">
+      Xóa danh sách
+    </button>
+    
+    <div class="instructions">
+      Mở video trên Twitter/X, Instagram, hoặc Facebook.<br>
+      Extension sẽ tự động phát hiện videos.
+    </div>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>
